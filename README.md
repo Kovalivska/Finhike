@@ -119,8 +119,7 @@ processor.print_summary()
 ## 📧 Contact
 
 **Project:** Finhike Risk Analysis  
-**Developer:** [Your Name]  
-**Submission:** Ready for a.jersovs@finhike.com
+**Developer:** Svitlana Kovalivska
 
 ---
 
