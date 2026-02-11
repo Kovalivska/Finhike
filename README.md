@@ -1,101 +1,125 @@
-# Finhike Risk Data Analysis - Solution Documentation
+# Finhike Risk Data Analysis 🏦
 
-## Задача
-Анализ XML данных кредитных сделок и расчет метрик на уровне клиентов.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Complete-success.svg)](https://github.com/Kovalivska/Finhike)
 
-## Структура решения
+> **Comprehensive XML-based credit risk analysis solution for financial institutions**
 
-### Файлы решения:
-1. **xml_processor.py** - Python решение для обработки XML файлов
-2. **sql_solution.sql** - SQL решение (PostgreSQL/Snowflake)
-3. **sample_data/** - Папка с примерами XML файлов для тестирования
-4. **README.md** - Данный файл с документацией
+## 📋 Project Overview
 
-## Python Решение
+This project processes XML files containing credit deal information and calculates client-level risk metrics. Built as a technical assessment for Finhike, it demonstrates advanced data processing, validation, and reporting capabilities.
 
-### Требования:
+### 🎯 Key Results
+- **Processed:** 5 client XML files (634 deals, 1,967 records)
+- **Portfolio closure rate:** 69.5% average
+- **Risk exposure:** 88,968.67 UAH in 30+ day overdue debt
+- **High-risk clients:** 2 out of 5 identified
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/Kovalivska/Finhike.git
+cd Finhike
+
+# Run with sample data
+chmod +x scripts/run_analysis.sh
+./scripts/run_analysis.sh
+
+# Or run the Python script directly
+python src/xml_processor.py
+```
+
+## 📊 Calculated Metrics
+
+For each client, the system calculates:
+
+1. **Total loans count** - Number of unique credit deals
+2. **Closed loans ratio** - Percentage of deals with actual end dates
+3. **Expired 30+ days amount** - Sum of overdue debt exceeding 30 days
+
+## 🏗️ Project Structure
+
+```
+Finhike/
+├── src/
+│   ├── xml_processor.py      # Main processing engine
+│   ├── validation.py         # Data validation module
+│   ├── final_analysis.py     # Comprehensive analysis
+│   └── sql_solution.sql      # Alternative SQL solution
+├── scripts/
+│   ├── run_analysis.sh       # Quick start script
+│   └── run_full_validation.sh # Complete validation
+├── sample_data/              # Demo XML files
+├── submission_files/         # Ready-to-submit outputs
+└── reports/                  # Analysis documentation
+```
+
+## 💻 Technical Implementation
+
+### Python Solution Features
+- ✅ **XML Parsing** - Robust ElementTree-based processing
+- ✅ **Data Validation** - Comprehensive error checking
+- ✅ **Pandas Integration** - Efficient tabular operations  
+- ✅ **CSV Export** - Standard format outputs
+- ✅ **JSON Reports** - Structured analysis results
+
+### SQL Alternative
+- PostgreSQL/Snowflake compatible queries
+- Optimized with CTEs and window functions
+- Production-ready for database environments
+
+## 📈 Sample Results
+
+| Client ID | Total Loans | Closed Ratio | 30+ Days Overdue |
+|-----------|-------------|--------------|------------------|
+| 2333123   | 416         | 95.67%       | 0.00 UAH        |
+| 2402782   | 23          | 39.13%       | 0.00 UAH        |
+| 2426982   | 20          | 35.00%       | 0.00 UAH        |
+| 2441859   | 116         | 92.24%       | 16,585.21 UAH   |
+| 2444357   | 55          | 85.45%       | 72,383.46 UAH   |
+
+## 🔧 Requirements
+
 ```bash
 pip install pandas lxml
 ```
 
-### Использование:
-1. Поместите XML файлы в папку `Data/`
-2. Запустите скрипт:
+## 📁 Output Files
+
+- `client_metrics_results.csv` - Final client metrics
+- `detailed_credit_data.csv` - Complete tabular dataset
+- `final_analysis_report.json` - Comprehensive JSON report
+- `validation_report.json` - Data quality assessment
+
+## 🧪 Testing
+
+The project includes sample XML data for testing:
+
 ```bash
-python xml_processor.py
+# Test with demo data
+python -c "
+from src.xml_processor import XMLCreditDataProcessor
+processor = XMLCreditDataProcessor('sample_data')
+processor.process_all_xml_files()
+processor.print_summary()
+"
 ```
 
-### Выходные файлы:
-- `client_metrics_results.csv` - итоговые метрики по клиентам
-- `detailed_credit_data.csv` - детальные данные в табличном формате
+## 🛡️ Data Validation
 
-### Рассчитываемые метрики:
-1. **total_loans_count** - общее количество кредитов
-2. **closed_loans_ratio** - доля закрытых кредитов от общего количества
-3. **expired_30_plus_amount** - сумма просроченных сделок свыше 30 дней
+- **XML Structure Validation** - Ensures proper parsing
+- **Metric Calculation Verification** - Cross-validates results
+- **Data Quality Checks** - Identifies inconsistencies
+- **Business Logic Validation** - Confirms calculation accuracy
 
-## SQL Решение
+## 📧 Contact
 
-### Предварительные условия:
-1. Данные должны быть загружены в таблицы `credit_deals` и `deal_history`
-2. Структура таблиц описана в начале SQL файла
+**Project:** Finhike Risk Analysis  
+**Developer:** [Your Name]  
+**Submission:** Ready for a.jersovs@finhike.com
 
-### Основной запрос:
-Выполните основной запрос из файла `sql_solution.sql` для получения метрик по клиентам.
+---
 
-## Логика расчета метрик
-
-### 1. Total count of loans
-Подсчитывается количество уникальных сделок (deal_id) для каждого клиента.
-
-### 2. Ratio of closed loans
-- Закрытыми считаются сделки, у которых заполнено поле `actual_end_date` (dldff)
-- Отношение = количество закрытых сделок / общее количество сделок
-
-### 3. Sum of expired deals amount over 30+ days
-- Берутся сделки с `days_overdue` > 30
-- Суммируется `overdue_debt` для таких сделок
-- Используется последний статус по каждой сделке
-
-## Структура XML данных
-
-### Основные блоки:
-- **crdeal** - информация о кредитной сделке
-- **deallife** - исторические периоды сделки
-
-### Ключевые поля:
-- `dlref` - ID сделки
-- `dlamt` - сумма сделки
-- `dldff` - фактическая дата закрытия
-- `dlamtexp` - сумма просроченной задолженности
-- `dldayexp` - количество дней просрочки
-
-## Тестирование
-
-### Запуск с демо-данными:
-1. Переименуйте папку `sample_data` в `Data`
-2. Запустите `python xml_processor.py`
-3. Проверьте результаты в CSV файлах
-
-### Ожидаемые результаты для демо-данных:
-- Клиент 001: 2 кредита, 1 закрыт (ratio=0.5), просрочка 30+ дней = 15000
-- Клиент 002: 1 кредит, 0 закрыто (ratio=0.0), просрочка 30+ дней = 25000
-
-## Обработка ошибок
-
-Код включает обработку следующих ситуаций:
-- Отсутствующие XML файлы
-- Поврежденные XML файлы
-- Отсутствующие поля в данных
-- Некорректные форматы данных
-
-## Масштабируемость
-
-Решение оптимизировано для:
-- Обработки больших объемов XML файлов
-- Эффективного использования памяти
-- Параллельной обработки (при необходимости)
-
-## Контакты
-
-При возникновении вопросов по решению обращайтесь к разработчику.
+⭐ **Star this repository if it helped you!**
