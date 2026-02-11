@@ -43,5 +43,11 @@ Thumbs.db
 *.xlsx
 *.pptx
 
+# Allow results.docx in submission_files
+!submission_files/results.docx
+
+# Exclude cover letters (private)
+COVER_LETTER*.md
+
 # Logs
 *.log
