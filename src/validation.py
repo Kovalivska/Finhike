@@ -162,10 +162,16 @@ class ResultsValidator:
                 )
             
             # 2. Validate closed loans count
-            latest_status = client_data.groupby('deal_id')['actual_end_date'].last()
-            closed_count = ((latest_status.notna()) & 
-                           (latest_status != '') & 
-                           (latest_status != 'nan')).sum()
+            # Use same logic as main processor: status > 1 OR actual_end_date filled
+            latest_data = client_data.groupby('deal_id').agg({
+                'actual_end_date': 'last',
+                'deal_status': 'last'
+            }).reset_index()
+            
+            closed_count = ((latest_data['deal_status'] > 1) | 
+                           ((latest_data['actual_end_date'].notna()) & 
+                            (latest_data['actual_end_date'] != '') & 
+                            (latest_data['actual_end_date'] != 'nan'))).sum()
             if closed_count != row['closed_loans_count']:
                 validation_errors.append(
                     f"Client {client_id}: Expected {closed_count} closed loans, got {row['closed_loans_count']}"

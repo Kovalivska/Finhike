@@ -23,15 +23,15 @@ Successfully processed 5 client XML files containing 634 credit deals with 1,969
 | Client ID | Total Loans | Closed Loans | Closed Ratio | Expired 30+ Days Amount |
 |-----------|-------------|--------------|--------------|-------------------------|
 | 2333123   | 416         | 398          | 0.9567 (95.67%) | 0.00 UAH               |
-| 2402782   | 23          | 9            | 0.3913 (39.13%) | 0.00 UAH               |
-| 2426982   | 20          | 7            | 0.3500 (35.00%) | 0.00 UAH               |
-| 2441859   | 116         | 107          | 0.9224 (92.24%) | 16,585.21 UAH          |
-| 2444357   | 55          | 47           | 0.8545 (85.45%) | 72,383.46 UAH          |
+| 2402782   | 23          | 10           | 0.4348 (43.48%) | 0.00 UAH               |
+| 2426982   | 20          | 8            | 0.4000 (40.00%) | 0.00 UAH               |
+| 2441859   | 116         | 108          | 0.9310 (93.10%) | 16,585.21 UAH          |
+| 2444357   | 55          | 50           | 0.9091 (90.91%) | 72,383.46 UAH          |
 
 **Total Portfolio Summary:**
 - **Total clients analyzed:** 5
 - **Total credit deals:** 634
-- **Overall portfolio closure rate:** 69.50%
+- **Overall portfolio closure rate:** 74.21%
 - **Total expired debt (30+ days):** 88,968.67 UAH
 
 ## Key Findings
@@ -56,7 +56,8 @@ Successfully processed 5 client XML files containing 634 credit deals with 1,969
    - Counted unique deal IDs (`dlref`) per client
    
 2. **Closed Loans Ratio:**
-   - Identified closed loans by presence of `actual_end_date` (dldff)
+   - Identified closed loans by deal_status > 1 (status codes: 2=Close, 3=Sold, etc.) OR presence of `actual_end_date` (dldff)
+   - Used official status mapping: 1=Open, 2+=Closed (various closure types)
    - Calculated ratio: closed_loans / total_loans
    
 3. **Expired Debt 30+ Days:**
@@ -82,7 +83,7 @@ Successfully processed 5 client XML files containing 634 credit deals with 1,969
 ## Recommendations
 
 1. **Risk Monitoring:** Focus on clients 2441859 and 2444357 due to expired debt exposure totaling 88,968.67 UAH
-2. **Portfolio Diversification:** Investigate low-performing clients (2402782, 2426982) with closure rates below 40%
+2. **Portfolio Improvement:** Moderate performers (2402782: 43.48%, 2426982: 40.00%) show room for improvement
 3. **Best Practices:** Study high-performing client 2333123 (95.67% closure rate) for process improvement
 4. **Process Automation:** Implement regular batch processing for ongoing monitoring
 5. **Performance Optimization:** For larger datasets, consider database storage and SQL processing

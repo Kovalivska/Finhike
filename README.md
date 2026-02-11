@@ -12,7 +12,7 @@ This project processes XML files containing credit deal information and calculat
 
 ### 🎯 Key Results
 - **Processed:** 5 client XML files (634 deals, 1,967 records)
-- **Portfolio closure rate:** 69.5% average
+- **Portfolio closure rate:** 74.21% average
 - **Risk exposure:** 88,968.67 UAH in 30+ day overdue debt
 - **High-risk clients:** 2 out of 5 identified
 
@@ -36,8 +36,10 @@ python src/xml_processor.py
 For each client, the system calculates:
 
 1. **Total loans count** - Number of unique credit deals
-2. **Closed loans ratio** - Percentage of deals with actual end dates
+2. **Closed loans ratio** - Percentage of deals with status > 1 (closed) or actual end dates
 3. **Expired 30+ days amount** - Sum of overdue debt exceeding 30 days
+
+*Note: Uses official status mapping where status 1=Open, status 2+=Closed (various closure types)*
 
 ## 🏗️ Project Structure
 
@@ -75,10 +77,10 @@ Finhike/
 | Client ID | Total Loans | Closed Ratio | 30+ Days Overdue |
 |-----------|-------------|--------------|------------------|
 | 2333123   | 416         | 95.67%       | 0.00 UAH        |
-| 2402782   | 23          | 39.13%       | 0.00 UAH        |
-| 2426982   | 20          | 35.00%       | 0.00 UAH        |
-| 2441859   | 116         | 92.24%       | 16,585.21 UAH   |
-| 2444357   | 55          | 85.45%       | 72,383.46 UAH   |
+| 2402782   | 23          | 43.48%       | 0.00 UAH        |
+| 2426982   | 20          | 40.00%       | 0.00 UAH        |
+| 2441859   | 116         | 93.10%       | 16,585.21 UAH   |
+| 2444357   | 55          | 90.91%       | 72,383.46 UAH   |
 
 ## 🔧 Requirements
 
