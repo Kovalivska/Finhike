@@ -10,9 +10,12 @@ env/
 venv/
 
 # Data files
-*.xml
+data/*.xml
 *.zip
 data-*.zip
+
+# Allow sample data
+!sample_data/*.xml
 
 # Results (can be regenerated)
 client_metrics_results.csv

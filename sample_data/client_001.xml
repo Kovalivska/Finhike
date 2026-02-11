@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <crdeal>
+        <dlref>DEAL001</dlref>
+        <lng>1</lng>
+        <lngref>Russian</lngref>
+        <dlcelcred>1</dlcelcred>
+        <dlcelcredref>Consumer credit</dlcelcredref>
+        <dlvidobes>0</dlvidobes>
+        <dlvidobesref>No collateral</dlvidobesref>
+        <dlporpog>1</dlporpog>
+        <dlporpogref>Annuity</dlporpogref>
+        <dlcurr>643</dlcurr>
+        <dlcurrref>Russian Ruble</dlcurrref>
+        <dlamt>100000.00</dlamt>
+        <dldonor>ABC</dldonor>
+        <dldonornum>12345</dldonornum>
+        <primarydebt>1</primarydebt>
+        <primarydebtref>Individual</primarydebtref>
+        <dlrolesub>1</dlrolesub>
+        <dlrolesubref>Borrower</dlrolesubref>
+        <dlamtobes>0.00</dlamtobes>
+        
+        <deallife>
+            <dlref>DEAL001</dlref>
+            <dlmonth>1</dlmonth>
+            <dlyear>2023</dlyear>
+            <dlds>2023-01-15</dlds>
+            <dldpf>2025-01-15</dldpf>
+            <dldff></dldff>
+            <dlflstat>1</dlflstat>
+            <dlflstatref>Active</dlflstatref>
+            <dlamtlim>100000.00</dlamtlim>
+            <dlamtpaym>5000.00</dlamtpaym>
+            <dlamtcur>95000.00</dlamtcur>
+            <dlamtexp>0.00</dlamtexp>
+            <dldayexp>0</dldayexp>
+            <dlflpay>1</dlflpay>
+            <dlflpayref>Payment made</dlflpayref>
+            <dlflbrk>0</dlflbrk>
+            <dlflbrkref>No arrears</dlflbrkref>
+            <dlfluse>0</dlfluse>
+            <dlfluseref>No tranche</dlfluseref>
+            <dldateclc>2023-01-31</dldateclc>
+        </deallife>
+        
+        <deallife>
+            <dlref>DEAL001</dlref>
+            <dlmonth>6</dlmonth>
+            <dlyear>2023</dlyear>
+            <dlds>2023-01-15</dlds>
+            <dldpf>2025-01-15</dldpf>
+            <dldff></dldff>
+            <dlflstat>2</dlflstat>
+            <dlflstatref>Overdue</dlflstatref>
+            <dlamtlim>100000.00</dlamtlim>
+            <dlamtpaym>5000.00</dlamtpaym>
+            <dlamtcur>75000.00</dlamtcur>
+            <dlamtexp>15000.00</dlamtexp>
+            <dldayexp>45</dldayexp>
+            <dlflpay>0</dlflpay>
+            <dlflpayref>No payment</dlflpayref>
+            <dlflbrk>1</dlflbrk>
+            <dlflbrkref>Arrears present</dlflbrkref>
+            <dlfluse>0</dlfluse>
+            <dlfluseref>No tranche</dlfluseref>
+            <dldateclc>2023-06-30</dldateclc>
+        </deallife>
+    </crdeal>
+    
+    <crdeal>
+        <dlref>DEAL002</dlref>
+        <lng>1</lng>
+        <lngref>Russian</lngref>
+        <dlcelcred>2</dlcelcred>
+        <dlcelcredref>Mortgage</dlcelcredref>
+        <dlvidobes>1</dlvidobes>
+        <dlvidobesref>Real estate</dlvidobesref>
+        <dlporpog>1</dlporpog>
+        <dlporpogref>Annuity</dlporpogref>
+        <dlcurr>643</dlcurr>
+        <dlcurrref>Russian Ruble</dlcurrref>
+        <dlamt>2000000.00</dlamt>
+        <dldonor>ABC</dldonor>
+        <dldonornum>12345</dldonornum>
+        <primarydebt>1</primarydebt>
+        <primarydebtref>Individual</primarydebtref>
+        <dlrolesub>1</dlrolesub>
+        <dlrolesubref>Borrower</dlrolesubref>
+        <dlamtobes>2200000.00</dlamtobes>
+        
+        <deallife>
+            <dlref>DEAL002</dlref>
+            <dlmonth>12</dlmonth>
+            <dlyear>2022</dlyear>
+            <dlds>2022-12-01</dlds>
+            <dldpf>2042-12-01</dldpf>
+            <dldff></dldff>
+            <dlflstat>1</dlflstat>
+            <dlflstatref>Active</dlflstatref>
+            <dlamtlim>2000000.00</dlamtlim>
+            <dlamtpaym>15000.00</dlamtpaym>
+            <dlamtcur>1950000.00</dlamtcur>
+            <dlamtexp>0.00</dlamtexp>
+            <dldayexp>0</dldayexp>
+            <dlflpay>1</dlflpay>
+            <dlflpayref>Payment made</dlflpayref>
+            <dlflbrk>0</dlflbrk>
+            <dlflbrkref>No arrears</dlflbrkref>
+            <dlfluse>0</dlfluse>
+            <dlfluseref>No tranche</dlfluseref>
+            <dldateclc>2022-12-31</dldateclc>
+        </deallife>
+        
+        <deallife>
+            <dlref>DEAL002</dlref>
+            <dlmonth>6</dlmonth>
+            <dlyear>2023</dlyear>
+            <dlds>2022-12-01</dlds>
+            <dldpf>2042-12-01</dldpf>
+            <dldff>2023-06-15</dldff>
+            <dlflstat>3</dlflstat>
+            <dlflstatref>Closed</dlflstatref>
+            <dlamtlim>2000000.00</dlamtlim>
+            <dlamtpaym>15000.00</dlamtpaym>
+            <dlamtcur>0.00</dlamtcur>
+            <dlamtexp>0.00</dlamtexp>
+            <dldayexp>0</dldayexp>
+            <dlflpay>1</dlflpay>
+            <dlflpayref>Payment made</dlflpayref>
+            <dlflbrk>0</dlflbrk>
+            <dlflbrkref>No arrears</dlflbrkref>
+            <dlfluse>0</dlfluse>
+            <dlfluseref>No tranche</dlfluseref>
+            <dldateclc>2023-06-30</dldateclc>
+        </deallife>
+    </crdeal>
+</root>

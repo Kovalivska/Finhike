@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <crdeal>
+        <dlref>DEAL003</dlref>
+        <lng>1</lng>
+        <lngref>Russian</lngref>
+        <dlcelcred>3</dlcelcred>
+        <dlcelcredref>Car loan</dlcelcredref>
+        <dlvidobes>2</dlvidobes>
+        <dlvidobesref>Vehicle</dlvidobesref>
+        <dlporpog>1</dlporpog>
+        <dlporpogref>Annuity</dlporpogref>
+        <dlcurr>643</dlcurr>
+        <dlcurrref>Russian Ruble</dlcurrref>
+        <dlamt>500000.00</dlamt>
+        <dldonor>XYZ</dldonor>
+        <dldonornum>67890</dldonornum>
+        <primarydebt>1</primarydebt>
+        <primarydebtref>Individual</primarydebtref>
+        <dlrolesub>1</dlrolesub>
+        <dlrolesubref>Borrower</dlrolesubref>
+        <dlamtobes>600000.00</dlamtobes>
+        
+        <deallife>
+            <dlref>DEAL003</dlref>
+            <dlmonth>3</dlmonth>
+            <dlyear>2023</dlyear>
+            <dlds>2023-03-01</dlds>
+            <dldpf>2028-03-01</dldpf>
+            <dldff></dldff>
+            <dlflstat>1</dlflstat>
+            <dlflstatref>Active</dlflstatref>
+            <dlamtlim>500000.00</dlamtlim>
+            <dlamtpaym>10000.00</dlamtpaym>
+            <dlamtcur>480000.00</dlamtcur>
+            <dlamtexp>0.00</dlamtexp>
+            <dldayexp>0</dldayexp>
+            <dlflpay>1</dlflpay>
+            <dlflpayref>Payment made</dlflpayref>
+            <dlflbrk>0</dlflbrk>
+            <dlflbrkref>No arrears</dlflbrkref>
+            <dlfluse>0</dlfluse>
+            <dlfluseref>No tranche</dlfluseref>
+            <dldateclc>2023-03-31</dldateclc>
+        </deallife>
+        
+        <deallife>
+            <dlref>DEAL003</dlref>
+            <dlmonth>8</dlmonth>
+            <dlyear>2023</dlyear>
+            <dlds>2023-03-01</dlds>
+            <dldpf>2028-03-01</dldpf>
+            <dldff></dldff>
+            <dlflstat>2</dlflstat>
+            <dlflstatref>Overdue</dlflstatref>
+            <dlamtlim>500000.00</dlamtlim>
+            <dlamtpaym>10000.00</dlamtpaym>
+            <dlamtcur>430000.00</dlamtcur>
+            <dlamtexp>25000.00</dlamtexp>
+            <dldayexp>60</dldayexp>
+            <dlflpay>0</dlflpay>
+            <dlflpayref>No payment</dlflpayref>
+            <dlflbrk>1</dlflbrk>
+            <dlflbrkref>Arrears present</dlflbrkref>
+            <dlfluse>0</dlfluse>
+            <dlfluseref>No tranche</dlfluseref>
+            <dldateclc>2023-08-31</dldateclc>
+        </deallife>
+    </crdeal>
+</root>
