@@ -1,0 +1,6 @@
+client_id,total_loans_count,closed_loans_count,closed_loans_ratio,expired_30_plus_amount
+2333123,416,398,0.9567,0.0
+2402782,23,10,0.4348,0.0
+2426982,20,8,0.4,0.0
+2441859,116,108,0.931,16585.21
+2444357,55,50,0.9091,72383.46

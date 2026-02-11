@@ -70,9 +70,11 @@ client_metrics AS (
         -- 1. Total count of loans
         COUNT(DISTINCT deal_id) as total_loans_count,
         
-        -- 2. Count of closed loans (those with actual_end_date)
+        -- 2. Count of closed loans (based on status or actual_end_date)
+        -- Deal Status Mapping: 1=Open, 2=Close, 3=Sold, 4=Restructured, etc.
+        -- Status > 1 indicates closed/completed deals
         COUNT(DISTINCT CASE 
-            WHEN actual_end_date IS NOT NULL 
+            WHEN deal_status > 1 OR actual_end_date IS NOT NULL 
             THEN deal_id 
         END) as closed_loans_count,
         

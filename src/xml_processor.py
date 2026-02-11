@@ -238,11 +238,14 @@ class XMLCreditDataProcessor:
             total_loans = len(client_deals)
             
             # 2. Ratio of closed loans count over total loans count
-            # A loan is closed if it has actual_end_date filled (not empty string)
+            # A loan is considered closed based on deal_status:
+            # Status 1 = Open, Status 2+ = Closed (Close, Sold, Restructured, etc.)
+            # Alternative: also check actual_end_date as secondary indicator
             closed_loans = client_deals[
-                (client_deals['actual_end_date'].notna()) & 
-                (client_deals['actual_end_date'] != '') & 
-                (client_deals['actual_end_date'] != 'nan')
+                (client_deals['deal_status'] > 1) |  # Status > 1 means closed
+                ((client_deals['actual_end_date'].notna()) & 
+                 (client_deals['actual_end_date'] != '') & 
+                 (client_deals['actual_end_date'] != 'nan'))
             ].shape[0]
             closed_ratio = closed_loans / total_loans if total_loans > 0 else 0
             
